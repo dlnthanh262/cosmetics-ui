@@ -7,12 +7,7 @@ const Home = ({ brands, products, latestProducts, hotProducts, discountedProduct
     return (
         <div>
             <Brand brands={brands} key='brands'></Brand>
-            <Products
-                products={products}
-                hotProducts={hotProducts}
-                latestProducts={latestProducts}
-                discountedProducts={discountedProducts}
-            />
+            <Products/>
         </div>
     )
 }
