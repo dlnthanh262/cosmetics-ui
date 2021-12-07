@@ -10,6 +10,19 @@ const App = () => {
     const [ categories, setCategories ] = React.useState([]);
     const [ brands, setBrands ] = React.useState([]);
     const [ products, setProducts ] = React.useState([]);
+    const [posts, setPosts] = React.useState([]);
+
+    const fetchPosts = async () => {
+        try {
+            const result = await axios.get(
+                "http://localhost:8080/api/posts"
+            );
+            setPosts(result.data);
+            console.log(result.data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     const fetchCategories = async () => {
         try {
@@ -42,6 +55,7 @@ const App = () => {
         fetchCategories();
         fetchBrands();
         fetchProducts();
+        fetchPosts();
       }, []);
    
     return (
@@ -50,6 +64,7 @@ const App = () => {
         <Home 
           brands={brands} 
           products={products}
+          posts={posts}
         />
         <Footer></Footer>
     </div>

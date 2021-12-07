@@ -1,14 +1,15 @@
 import React from 'react';
 
 import Brand from '../Brand/Brand';
-import Products from '../Product/Products';
+import Products from '../Products/Products';
+import Blogs from '../Blogs/Blogs';
 
-const Home = ({ brands , products }) => {
-   console.log(products);
+const Home = ({ brands , products, posts }) => {
     return (
         <div>
             <Brand brands={brands} key='brands'></Brand>
             <Products brands={brands}/>
+            <Blogs posts={posts}/>
         </div>
     )
 }
