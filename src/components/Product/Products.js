@@ -3,7 +3,8 @@ import axios from 'axios';
 
 import Product from "./Product/Product";
 
-const Products = () => {
+const Products = ({brands}) => {
+  
   const [latestProductsPage1, setLatestProductsPage1] = React.useState([]);
   const [hotProductsPage1, setHotProductsPage1] = React.useState([]);
   const [discountedProductsPage1, setDiscountedProductsPage1] = React.useState([]);
@@ -92,12 +93,20 @@ const Products = () => {
               <div class="latest-product__slider owl-carousel">
                 <div class="latest-prdouct__slider__item">
                   {latestProductsPage1.map((product) => (
-                    <Product product={product} key={product.id}></Product>
+                    <Product 
+                      product={product} 
+                      key={product.id}
+                      brands={brands}
+                    />
                   ))}
                 </div>
                 <div class="latest-prdouct__slider__item">
                   {latestProductsPage2.map((product) => (
-                    <Product product={product} key={product.id}></Product>
+                    <Product 
+                      product={product} 
+                      key={product.id}
+                      brands={brands}
+                    />
                   ))}
                 </div>
               </div>
@@ -109,12 +118,20 @@ const Products = () => {
               <div class="latest-product__slider owl-carousel">
                 <div class="latest-prdouct__slider__item">
                   {hotProductsPage1.map((product) => (
-                    <Product product={product} key={product.id}></Product>
+                    <Product 
+                      product={product} 
+                      key={product.id}
+                      brands={brands}
+                    />
                   ))}
                 </div>
                 <div class="latest-prdouct__slider__item">
                   {hotProductsPage2.map((product) => (
-                    <Product product={product} key={product.id}></Product>
+                    <Product 
+                      product={product} 
+                      key={product.id}
+                      brands={brands}
+                    />
                   ))}
                 </div>
               </div>
@@ -126,12 +143,20 @@ const Products = () => {
               <div class="latest-product__slider owl-carousel">
                 <div class="latest-prdouct__slider__item">
                   {discountedProductsPage1.map((product) => (
-                    <Product product={product} key={product.id}></Product>
+                    <Product 
+                      product={product} 
+                      key={product.id}
+                      brands={brands}
+                    />
                   ))}
                 </div>
                 <div class="latest-prdouct__slider__item">
                   {discountedProductsPage2.map((product) => (
-                    <Product product={product} key={product.id}></Product>
+                    <Product 
+                      product={product} 
+                      key={product.id}
+                      brands={brands}
+                    />
                   ))}
                 </div>
               </div>
