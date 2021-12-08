@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 import Product from "./Product/Product";
 
-const Products = ({brands}) => {
-  
+const Products = ({ brands }) => {
   const [latestProductsPage1, setLatestProductsPage1] = React.useState([]);
   const [hotProductsPage1, setHotProductsPage1] = React.useState([]);
-  const [discountedProductsPage1, setDiscountedProductsPage1] = React.useState([]);
+  const [discountedProductsPage1, setDiscountedProductsPage1] = React.useState(
+    []
+  );
   const [latestProductsPage2, setLatestProductsPage2] = React.useState([]);
   const [hotProductsPage2, setHotProductsPage2] = React.useState([]);
-  const [discountedProductsPage2, setDiscountedProductsPage2] = React.useState([]);
+  const [discountedProductsPage2, setDiscountedProductsPage2] = React.useState(
+    []
+  );
 
   const fetchLatestProductsPage1 = async () => {
     try {
@@ -25,7 +28,9 @@ const Products = ({brands}) => {
 
   const fetchHotProductsPage1 = async () => {
     try {
-      const result = await axios.get("http://localhost:8080/api/products/hot?page=0");
+      const result = await axios.get(
+        "http://localhost:8080/api/products/hot?page=0"
+      );
       setHotProductsPage1(result.data.products);
     } catch (error) {
       console.error(error);
@@ -56,7 +61,9 @@ const Products = ({brands}) => {
 
   const fetchHotProductsPage2 = async () => {
     try {
-      const result = await axios.get("http://localhost:8080/api/products/hot?page=1");
+      const result = await axios.get(
+        "http://localhost:8080/api/products/hot?page=1"
+      );
       setHotProductsPage2(result.data.products);
     } catch (error) {
       console.error(error);
@@ -93,8 +100,8 @@ const Products = ({brands}) => {
               <div class="latest-product__slider owl-carousel">
                 <div class="latest-prdouct__slider__item">
                   {latestProductsPage1.map((product) => (
-                    <Product 
-                      product={product} 
+                    <Product
+                      product={product}
                       key={product.id}
                       brands={brands}
                     />
@@ -102,8 +109,8 @@ const Products = ({brands}) => {
                 </div>
                 <div class="latest-prdouct__slider__item">
                   {latestProductsPage2.map((product) => (
-                    <Product 
-                      product={product} 
+                    <Product
+                      product={product}
                       key={product.id}
                       brands={brands}
                     />
@@ -118,8 +125,8 @@ const Products = ({brands}) => {
               <div class="latest-product__slider owl-carousel">
                 <div class="latest-prdouct__slider__item">
                   {hotProductsPage1.map((product) => (
-                    <Product 
-                      product={product} 
+                    <Product
+                      product={product}
                       key={product.id}
                       brands={brands}
                     />
@@ -127,8 +134,8 @@ const Products = ({brands}) => {
                 </div>
                 <div class="latest-prdouct__slider__item">
                   {hotProductsPage2.map((product) => (
-                    <Product 
-                      product={product} 
+                    <Product
+                      product={product}
                       key={product.id}
                       brands={brands}
                     />
@@ -143,8 +150,8 @@ const Products = ({brands}) => {
               <div class="latest-product__slider owl-carousel">
                 <div class="latest-prdouct__slider__item">
                   {discountedProductsPage1.map((product) => (
-                    <Product 
-                      product={product} 
+                    <Product
+                      product={product}
                       key={product.id}
                       brands={brands}
                     />
@@ -152,8 +159,8 @@ const Products = ({brands}) => {
                 </div>
                 <div class="latest-prdouct__slider__item">
                   {discountedProductsPage2.map((product) => (
-                    <Product 
-                      product={product} 
+                    <Product
+                      product={product}
                       key={product.id}
                       brands={brands}
                     />

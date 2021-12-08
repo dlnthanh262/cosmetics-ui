@@ -18,7 +18,6 @@ const App = () => {
                 "http://localhost:8080/api/posts"
             );
             setPosts(result.data);
-            console.log(result.data);
         } catch (error) {
             console.error(error);
         }
