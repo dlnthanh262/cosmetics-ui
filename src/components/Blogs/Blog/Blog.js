@@ -8,7 +8,7 @@ const Blog = ({ post }) => {
     <div class="col-lg-4 col-md-4 col-sm-6">
       <div class="blog__item">
         <div class="blog__item__pic">
-          <img src={`assets/img/posts/${post.image}`} alt="" />
+          <img src={`http://localhost:3000/assets/img/posts/${post.image}`} alt="" />
         </div>
         <div class="blog__item__text">
           <ul>

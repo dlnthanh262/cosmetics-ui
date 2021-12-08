@@ -60,7 +60,7 @@ const Footer = () => {
                               <div class="footer__copyright__text"><p>
         Copyright &copy;2021
       </p></div>
-                              <div class="footer__copyright__payment"><img src="assets/img/payment-item.png" alt="" /></div>
+                              <div class="footer__copyright__payment"><img src="http://localhost:3000/assets/img/payment-item.png" alt="" /></div>
                           </div>
                       </div>
                   </div>

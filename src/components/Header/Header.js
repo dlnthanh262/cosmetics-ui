@@ -67,10 +67,10 @@ const Header = ({ categories }) => {
                       <a href="#">Sản phẩm hot</a>
                     </li>
                     <li>
-                      <a href="#">Tất cả sản phẩm</a>
+                      <a href="#">Sản phẩm khuyến mãi</a>
                     </li>
                     <li>
-                      <a href="#">Giỏ hàng</a>
+                      <a href="#">Tất cả sản phẩm</a>
                     </li>
                   </ul>
                 </li>
@@ -130,10 +130,6 @@ const Header = ({ categories }) => {
               <div class="hero__search">
                 <div class="hero__search__form">
                   <form action="#">
-                    {/* <div class="hero__search__categories">
-                                          All Categories
-                                          <span class="arrow_carrot-down"></span>
-                                      </div> */}
                     <input type="text" placeholder="Bạn cần gì?" />
                     <button type="submit" class="site-btn">
                       TÌM KIẾM
@@ -152,7 +148,7 @@ const Header = ({ categories }) => {
               </div>
               <div
                 class="hero__item set-bg"
-                data-setbg="assets/img/hero/banner.webp"
+                data-setbg="http://localhost:3000/assets/img/hero/banner.webp"
               >
                 <div class="hero__text">
                   <span>MĨ PHẨM XÁCH TAY</span>
