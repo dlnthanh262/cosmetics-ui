@@ -26,7 +26,7 @@ const Product = ({ product, brands }) => {
   useEffect(() => {
     getBrandName();
     getType();
-  }, [product.name]);
+  }, [product.id]);
 
   return (
     <BrowserRouter>
