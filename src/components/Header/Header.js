@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Banner from "../Banner/Banner";
+import ProductDetail from "../ProductDetail/ProductDetail";
 
 const Header = ({ categories }) => {
   return (
@@ -121,13 +122,26 @@ const Header = ({ categories }) => {
                     <i class="fa fa-bars"></i>
                     <span>Danh mục</span>
                   </div>
-                  <ul>
-                    {categories.map((category) => (
-                      <li key={category.id}>
-                        <a href="#">{category.name}</a>
-                      </li>
-                    ))}
-                  </ul>
+                  <Switch>
+                  <Route exact path="/">
+                    <ul>
+                      {categories.map((category) => (
+                        <li key={category.id}>
+                          <a href="#">{category.name}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  </Route>
+                  <Route exact path="/product/:id">
+                    <ul class="display-none">
+                      {categories.map((category) => (
+                        <li key={category.id}>
+                          <a href="#">{category.name}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  </Route>
+                </Switch>
                 </div>
               </div>
               <div class="col-lg-9">
@@ -154,6 +168,9 @@ const Header = ({ categories }) => {
                   <Route exact path="/">
                     <Banner />
                   </Route>
+                  {/* <Route exact path="/product/:id">
+                    <ProductDetail />
+                  </Route> */}
                 </Switch>
               </div>
             </div>

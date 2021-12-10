@@ -552,7 +552,7 @@ ol {
 -----------------------*/
 
 .hero {
-  padding-bottom: 50px;
+  /* padding-bottom: 50px; */
 }
 
 .hero.hero-normal {
@@ -611,6 +611,10 @@ ol {
   padding-left: 40px;
   padding-top: 10px;
   padding-bottom: 12px;
+  position: absolute;
+  z-index: 1000;
+  width: 90%;
+  background: #fff;
 }
 
 .hero__categories ul li {
@@ -747,6 +751,10 @@ ol {
 /*---------------------
   Categories
 -----------------------*/
+
+.categories {
+  margin-top: 50px;
+}
 
 .categories__item {
   height: 270px;
@@ -979,6 +987,7 @@ ol {
   margin-bottom: 20px;
   overflow: hidden;
   display: block;
+  box-shadow: 0 8px 8px -10px #ccc;
 }
 
 .latest-product__item__pic {
@@ -3479,10 +3488,66 @@ ol {
   font-weight: 500;
 }
 
+/* Product Detail Slide Show */
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.mySlides {
+  display: none;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.numbertextSlide {
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.slideShow-dot {
+  cursor: pointer;
+  height: 70px;
+  width: 70px;
+  margin: 0 2px;
+  background-color: #bbb;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.activeSlide, .slideShow-dot:hover {
+  opacity: 0.8;
+}
+
+/* Fading animation */
+.fadeSlideShow {
+  -webkit-animation-name: fadeSlideShow;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fadeSlideShow;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fadeSlideShow {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fadeSlideShow {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
 /* Additional CSS */
 
 .home-product-discounted-price {
   color: red !important;
+  font-weight: bold !important;
 }
 .home-product-unit-price {
   font-size: 14px !important;
@@ -3568,4 +3633,39 @@ ol {
   position: absolute !important;
   bottom: 0;
   right: 0;
+}
+
+.display-none {
+  display: none;
+}
+
+.product-detail-image img {
+  border: 1px solid grey;
+}
+
+.product-detail-button {
+  border: none !important;
+  outline: none !important;
+  color: grey !important;
+}
+
+.product-detail-button-text {
+  margin: 0 auto !important;
+  text-align: center !important;
+}
+
+.product-detail-button-cart {
+  font-size: 14px !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  display: inline-block !important;
+  padding: 13px 30px 12px !important;
+  background: #7fad39 !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+button:hover {
+  opacity: 0.8 !important;
 }

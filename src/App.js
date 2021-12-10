@@ -65,7 +65,7 @@ const App = () => {
             <Home brands={brands} products={products} posts={posts} />
           </Route>
           <Route exact path="/product/:id">
-            <ProductDetail/>
+            <ProductDetail brands={brands}/>
           </Route>
         </Switch>
         <Footer></Footer>
