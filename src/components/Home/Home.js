@@ -8,7 +8,7 @@ import Blogs from '../Blogs/Blogs';
 const Home = ({ brands , products, posts }) => {
     return (
         <div>
-            <Brand brands={brands} key='brands'></Brand>
+            <Brand brands={brands}></Brand>
             <Products brands={brands}/>
             <Blogs posts={posts}/>
         </div>

@@ -13,7 +13,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
   }
 
   function showSlides(n) {
-    alert('abc');
     var i;
     var slides = document.getElementsByClassName("mySlides");
     var dots = document.getElementsByClassName("slideShow-dot");

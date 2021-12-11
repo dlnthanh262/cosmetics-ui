@@ -17,6 +17,7 @@ const App = () => {
     try {
       const result = await axios.get("http://localhost:8080/api/posts");
       setPosts(result.data);
+      console.log(result.data);
     } catch (error) {
       console.error(error);
     }
@@ -26,6 +27,7 @@ const App = () => {
     try {
       const result = await axios.get("http://localhost:8080/api/categories");
       setCategories(result.data);
+      console.log(result.data);
     } catch (error) {
       console.error(error);
     }
@@ -35,6 +37,7 @@ const App = () => {
     try {
       const result = await axios.get("http://localhost:8080/api/brands");
       setBrands(result.data);
+      console.log(result.data);
     } catch (error) {
       console.error(error);
     }
@@ -44,6 +47,7 @@ const App = () => {
     try {
       const result = await axios.get("http://localhost:8080/api/products");
       setProducts(result.data);
+      console.log(result.data);
     } catch (error) {
       console.error(error);
     }
@@ -55,6 +59,11 @@ const App = () => {
     fetchProducts();
     fetchPosts();
   }, []);
+
+    //   fetchCategories();
+    // fetchBrands();
+    // fetchProducts();
+    // fetchPosts();
 
   return (
     <BrowserRouter>

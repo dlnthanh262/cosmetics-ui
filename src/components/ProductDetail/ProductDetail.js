@@ -8,6 +8,8 @@ import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 import NumberFormat from "react-number-format";
 
+import SlideShow from "../SlideShow/SlideShow";
+
 const ProductDetail = ({ brands }) => {
   const { id } = useParams();
   const [product, setProduct] = React.useState({});
@@ -40,49 +42,11 @@ const ProductDetail = ({ brands }) => {
       <div class="container">
         <div className="row">
           <div className="product-detail-image col">
-            <div className="row">
-              <div class="mySlides fadeSlideShow">
-                <div class="numbertextSlide">1 / 3</div>
-                <img
-                  src={`http://localhost:3000/assets/img/products/${product.image}`}
-                  style={{ width: "100%" }}
-                />
-              </div>
-              <div class="mySlides fadeSlideShow">
-                <div class="numbertextSlide">2 / 3</div>
-                <img
-                  src={`http://localhost:3000/assets/img/products/${product.image}`}
-                  style={{ width: "100%" }}
-                />
-              </div>
-              <div class="mySlides fadeSlideShow">
-                <div class="numbertextSlide">3 / 3</div>
-                <img
-                  src={`http://localhost:3000/assets/img/products/${product.image}`}
-                  style={{ width: "100%" }}
-                />
-              </div>
-            </div>
-
-            <div className="row">
-            <div style={{textAlign:'left'}}>
-              <span onClick='currentSlide(1)'>
-              <img 
-              src={`http://localhost:3000/assets/img/products/${product.image}`}
-              className="slideShow-dot"></img>
-              </span>
-              <span onClick='currentSlide(2)'>
-              <img 
-              src={`http://localhost:3000/assets/img/products/${product.image}`}
-              className="slideShow-dot"></img>
-              </span>
-              <span onClick='currentSlide(3)'>
-              <img 
-              src={`http://localhost:3000/assets/img/products/${product.image}`}
-              className="slideShow-dot"></img>
-              </span>
-            </div>
-            </div>
+            <SlideShow
+              image1={`http://localhost:3000/assets/img/products/${product.image}`}
+              image2={`http://localhost:3000/assets/img/products/${product.image}`}
+              image3={`http://localhost:3000/assets/img/products/${product.image}`}
+            />
           </div>
           <div className="product-detail-info col">
             <h4 style={{ fontWeight: "bold" }}>{product.name}</h4>
