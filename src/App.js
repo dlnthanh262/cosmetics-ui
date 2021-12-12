@@ -17,7 +17,6 @@ const App = () => {
     try {
       const result = await axios.get("http://localhost:8080/api/posts");
       setPosts(result.data);
-      console.log(result.data);
     } catch (error) {
       console.error(error);
     }
@@ -27,7 +26,6 @@ const App = () => {
     try {
       const result = await axios.get("http://localhost:8080/api/categories");
       setCategories(result.data);
-      console.log(result.data);
     } catch (error) {
       console.error(error);
     }
@@ -37,7 +35,6 @@ const App = () => {
     try {
       const result = await axios.get("http://localhost:8080/api/brands");
       setBrands(result.data);
-      console.log(result.data);
     } catch (error) {
       console.error(error);
     }
@@ -47,7 +44,6 @@ const App = () => {
     try {
       const result = await axios.get("http://localhost:8080/api/products");
       setProducts(result.data);
-      console.log(result.data);
     } catch (error) {
       console.error(error);
     }
@@ -60,18 +56,13 @@ const App = () => {
     fetchPosts();
   }, []);
 
-    //   fetchCategories();
-    // fetchBrands();
-    // fetchProducts();
-    // fetchPosts();
-
   return (
-    <BrowserRouter>
+    <BrowserRouter forceRefresh>
       <div className="MainDiv">
         <Header categories={categories}></Header>
         <Switch>
           <Route exact path="/">
-            <Home brands={brands} products={products} posts={posts} />
+            <Home products={products} posts={posts} brands={brands} />
           </Route>
           <Route exact path="/product/:id">
             <ProductDetail brands={brands}/>

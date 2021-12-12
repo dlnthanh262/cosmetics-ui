@@ -26,19 +26,22 @@ const Product = ({ product, brands }) => {
   useEffect(() => {
     getBrandName();
     getType();
-  }, [product.name]);
+  });
 
   return (
-    <BrowserRouter forceRefresh >
+    <BrowserRouter forceRefresh>
       <Link
         to={`/product/${product.id}`}
         className="latest-product__item position-relative abc"
       >
         <div class="badge-overlay position-absolute">
           <span class="top-left badge">{type}</span>
-        </div>  
+        </div>
         <div class="latest-product__item__pic">
-          <img src={`http://localhost:3000/assets/img/products/${product.image}`} alt="" />
+          <img
+            src={`http://localhost:3000/assets/img/products/${product.image}`}
+            alt=""
+          />
         </div>
         <div class="latest-product__item__text">
           <h6 className="home-product-clamp-lines">{product.name}</h6>

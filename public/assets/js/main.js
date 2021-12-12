@@ -209,6 +209,6 @@
   }, 10);
 
   /*-------------------
-		Hide categories in product page
+		Slide show in product details page
 	--------------------- */
 })(jQuery);

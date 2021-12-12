@@ -1,26 +1,50 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import axios from "axios";
 
-const RelatedProduct = ({products, brands}) => {
-    return (
-        <section class="categories">
-        <div class="container">
-            <div class="row">
-                <div class="categories__slider owl-carousel">
-                    {/* {
-                        brands.map((brand) => (
-                          <div class="col-lg-3" key={brand.id}>
-                              <div class="categories__item set-bg" data-setbg={`http://localhost:3000/assets/img/brands/${brand.logo}`}>
-                                  <h5><a href="#">{brand.name}</a></h5>
-                                  </div>
-                           </div>
-                        ))
-                    } */}
+import Product from "../Products/Product/Product";
 
-                </div>
-            </div>
+const RelatedProduct = ({ categoryId }) => {
+  const [relatedProducts, setRelatedProducts] = React.useState([]);
+  const [brands, setBrands] = React.useState([]);
+
+  const fetchRelatedProducts = async () => {
+    var apiUri = "http://localhost:8080/api/products/" + categoryId;
+    try {
+      const result = await axios.get(apiUri);
+      setRelatedProducts(result.data);
+      console.log(result.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const fetchBrands = async () => {
+    try {
+      const result = await axios.get("http://localhost:8080/api/brands");
+      setBrands(result.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchRelatedProducts();
+    fetchBrands();
+  });
+
+  return (
+    <section class="categories">
+      <div class="container">
+        <div class="row">
+          <div class="categories__slider owl-carousel">
+            {relatedProducts.map((product) => (
+              <Product product={product} brands={brands}></Product>
+            ))}
+          </div>
         </div>
+      </div>
     </section>
-    )
-}
+  );
+};
 
-export default RelatedProduct
+export default RelatedProduct;

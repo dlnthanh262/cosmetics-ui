@@ -82,12 +82,14 @@ const Products = ({ brands }) => {
   };
 
   useEffect(() => {
-    fetchLatestProductsPage1();
-    fetchHotProductsPage1();
-    fetchDiscountedProductsPage1();
-    fetchLatestProductsPage2();
-    fetchHotProductsPage2();
-    fetchDiscountedProductsPage2();
+    if (latestProductsPage1.length == 0) {
+      fetchLatestProductsPage1();
+      fetchHotProductsPage1();
+      fetchDiscountedProductsPage1();
+      fetchLatestProductsPage2();
+      fetchHotProductsPage2();
+      fetchDiscountedProductsPage2();
+    }
   }, []);
 
   return (

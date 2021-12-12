@@ -9,6 +9,7 @@ import RemoveIcon from "@material-ui/icons/Remove";
 import NumberFormat from "react-number-format";
 
 import SlideShow from "../SlideShow/SlideShow";
+import RelatedProduct from "../RelatedProduct/RelatedProduct";
 
 const ProductDetail = ({ brands }) => {
   const { id } = useParams();
@@ -35,7 +36,7 @@ const ProductDetail = ({ brands }) => {
 
   useEffect(() => {
     fetchProduct();
-  }, []);
+  });
 
   return (
     <section className="product-detail">
@@ -119,7 +120,7 @@ const ProductDetail = ({ brands }) => {
               </div>
               <div className="col-lg-9">
                 <NumberFormat
-                  value={product.unitPrice * itemCount}
+                  value={product.unitPrice * (100 - product.discountPercent) / 100 * itemCount}
                   displayType={"text"}
                   className="home-product-discounted-price"
                   thousandSeparator={true}
@@ -139,6 +140,10 @@ const ProductDetail = ({ brands }) => {
             <p style={{ margin: "0", height: "30px" }}>Mô tả:</p>
             <p style={{ fontSize: "14px" }}>{product.description}</p>
           </div>
+        </div>
+
+        <div className="row">
+          <RelatedProduct categoryId={product.categoryId}></RelatedProduct>
         </div>
       </div>
     </section>
