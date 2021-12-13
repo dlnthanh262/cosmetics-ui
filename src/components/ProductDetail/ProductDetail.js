@@ -9,7 +9,7 @@ import RemoveIcon from "@material-ui/icons/Remove";
 import NumberFormat from "react-number-format";
 
 import SlideShow from "../SlideShow/SlideShow";
-import RelatedProduct from "../RelatedProduct/RelatedProduct";
+import RelatedProducts from "../RelatedProducts/RelatedProducts";
 
 const ProductDetail = ({ brands }) => {
   const { id } = useParams();
@@ -143,7 +143,7 @@ const ProductDetail = ({ brands }) => {
         </div>
 
         <div className="row">
-          <RelatedProduct categoryId={product.categoryId}></RelatedProduct>
+          <RelatedProducts categoryId={product.categoryId} brandId={product.brandId}></RelatedProducts>
         </div>
       </div>
     </section>
