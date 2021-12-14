@@ -1,5 +1,7 @@
 import React from "react";
 
+import CartItem from "../CartItem/CartItem";
+
 const Cart = () => {
   return (
     <div>
@@ -24,173 +26,26 @@ const Cart = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>
-                        <figure class="itemside">
-                          <div class="aside">
-                            <img
-                              src="assets/img/products/_vien_hoa_hong_20_7864653c7d0b4a4782ceeee80c9e7eaf_master.webp"
-                              class="img-sm"
-                            />
-                          </div>
-                          <figcaption class="info">
-                            <a href="#" class="title text-dark">
-                              Some name of item goes here nice
-                            </a>
-                            <p class="text-muted small">
-                              Size: XL, Color: blue, <br /> Brand: Gucci
-                            </p>
-                          </figcaption>
-                        </figure>
-                      </td>
-                      <td>
-                        <select class="form-control">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                        </select>
-                      </td>
-                      <td>
-                        <div class="price-wrap">
-                          <var class="price">$1156.00</var>
-                          <small class="text-muted"> $315.20 each </small>
-                        </div>
-                      </td>
-                      <td class="text-right">
-                        <a
-                          data-original-title="Save to Wishlist"
-                          title=""
-                          href=""
-                          class="btn btn-light mr-2"
-                          data-toggle="tooltip"
-                        >
-                          {" "}
-                          <i class="fa fa-heart"></i>
-                        </a>
-                        <a href="" class="btn btn-light">
-                          {" "}
-                          Xóa
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <figure class="itemside">
-                          <div class="aside">
-                            <img
-                              src="assets/img/products/_vien_hoa_hong_20_7864653c7d0b4a4782ceeee80c9e7eaf_master.webp"
-                              class="img-sm"
-                            />
-                          </div>
-                          <figcaption class="info">
-                            <a href="#" class="title text-dark">
-                              Product name goes here nice
-                            </a>
-                            <p class="text-muted small">
-                              Size: XL, Color: blue, <br /> Brand: Gucci
-                            </p>
-                          </figcaption>
-                        </figure>
-                      </td>
-                      <td>
-                        <select class="form-control">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                        </select>
-                      </td>
-                      <td>
-                        <div class="price-wrap">
-                          <var class="price">$149.97</var>
-                          <small class="text-muted"> $75.00 each </small>
-                        </div>
-                      </td>
-                      <td class="text-right">
-                        <a
-                          data-original-title="Save to Wishlist"
-                          title=""
-                          href=""
-                          class="btn btn-light mr-2"
-                          data-toggle="tooltip"
-                        >
-                          {" "}
-                          <i class="fa fa-heart"></i>
-                        </a>
-                        <a href="" class="btn btn-light btn-round">
-                          {" "}
-                          Xóa
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <figure class="itemside">
-                          <div class="aside">
-                            <img
-                              src="assets/img/products/_vien_hoa_hong_20_7864653c7d0b4a4782ceeee80c9e7eaf_master.webp"
-                              class="img-sm"
-                            />
-                          </div>
-                          <figcaption class="info">
-                            <a href="#" class="title text-dark">
-                              Another name of some product goes just here
-                            </a>
-                            <p class="small text-muted">
-                              Size: XL, Color: blue, Brand: Tissot
-                            </p>
-                          </figcaption>
-                        </figure>
-                      </td>
-                      <td>
-                        <select class="form-control">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                        </select>
-                      </td>
-                      <td>
-                        <div class="price-wrap">
-                          <var class="price">$98.00</var>
-                          <small class="text-muted"> $578.00 each</small>
-                        </div>
-                      </td>
-                      <td class="text-right">
-                        <a
-                          data-original-title="Save to Wishlist"
-                          title=""
-                          href=""
-                          class="btn btn-light mr-2"
-                          data-toggle="tooltip"
-                        >
-                          {" "}
-                          <i class="fa fa-heart"></i>
-                        </a>
-                        <a href="" class="btn btn-light btn-round">
-                          {" "}
-                          Xóa
-                        </a>
-                      </td>
-                    </tr>
+                    
                   </tbody>
                 </table>
 
                 <div class="card-body border-top">
                   <a href="#" class="btn btn-primary float-md-right">
                     {" "}
-                    Thanh toán <i class="fa fa-chevron-right"></i>{" "}
+                    Thanh toán {" "}
                   </a>
                   <a href="#" class="btn btn-light">
                     {" "}
-                    <i class="fa fa-chevron-left"></i> Tiếp tục mua sắm{" "}
+                     Tiếp tục mua sắm{" "}
                   </a>
                 </div>
               </div>
 
               <div class="alert alert-success mt-3">
                 <p class="icontext">
-                  <i class="icon text-success fa fa-truck"></i> Giao hàng miễn phí trong tháng 12
+                  <i class="icon text-success fa fa-truck"></i> Giao hàng miễn
+                  phí trong tháng 12
                 </p>
               </div>
             </main>

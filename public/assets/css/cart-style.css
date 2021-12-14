@@ -11,6 +11,7 @@ html {
 INCLUDE STYLES AND COMPONENTS
 ===================== */
 /* ================== HELPERS  =================== */
+
 a:hover {
   text-decoration: none;
 }
@@ -602,7 +603,20 @@ p:last-child {
 .btn-light {
   background-color: #fff;
   border-color: #e4e4e4;
+  border-radius: 0 !important;
 }
+
+.btn-primary {
+  background: #7fad39;
+  border-radius: 0;
+  border:none;
+}
+
+.btn-primary:hover {
+  background: #7fad39;
+  opacity: 0.9;
+}
+
 .btn-light i {
   color: #969696;
 }
@@ -1416,3 +1430,7 @@ a[class*=card]:hover .title {
 }
 
 /*# sourceMappingURL=ui.css.map */
+
+.card, .alert, .input-group>.form-control:not(:last-child) {
+  border-radius: 0 !important;
+}
