@@ -13,6 +13,22 @@ const App = () => {
   const [brands, setBrands] = React.useState([]);
   const [products, setProducts] = React.useState([]);
   const [posts, setPosts] = React.useState([]);
+  const [cartItems, setCartItems] = React.useState([]);
+
+  const onAdd = (product) => {
+    const exist = cartItems.find((x) => x.id === product.id);
+    if (exist) {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === product.id
+            ? { ...exist, cartQuantity: exist.cartQuantity + 1 }
+            : x
+        )
+      );
+    } else {
+      setCartItems([...cartItems, {...product, cartQuantity: 1 }]);
+    }
+  };
 
   const fetchPosts = async () => {
     try {
@@ -63,13 +79,13 @@ const App = () => {
         <Header categories={categories}></Header>
         <Switch>
           <Route exact path="/">
-            <Home products={products} posts={posts} brands={brands} />
+            <Home products={products} posts={posts} brands={brands} onAdd={onAdd} />
           </Route>
           <Route exact path="/product/:id">
-            <ProductDetail brands={brands}/>
+            <ProductDetail brands={brands} />
           </Route>
           <Route exact path="/cart">
-            <Cart/>
+            <Cart cartItems={cartItems} onAdd={onAdd} />
           </Route>
         </Switch>
         <Footer></Footer>

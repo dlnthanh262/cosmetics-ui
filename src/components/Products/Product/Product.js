@@ -5,7 +5,7 @@ import NumberFormat from "react-number-format";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Button from "@material-ui/core/Button";
 
-const Product = ({ product, brands }) => {
+const Product = ({ product, brands, onAdd }) => {
   const [brandName, setBrandName] = useState("No brand");
   const [type, setType] = useState("");
 
@@ -30,10 +30,7 @@ const Product = ({ product, brands }) => {
 
   return (
     <BrowserRouter forceRefresh>
-      <Link
-        to={`/product/${product.id}`}
-        className="latest-product__item position-relative abc"
-      >
+      <div className="latest-product__item position-relative abc">
         <div class="badge-overlay position-absolute">
           <span class="top-left badge">{type}</span>
         </div>
@@ -44,7 +41,9 @@ const Product = ({ product, brands }) => {
           />
         </div>
         <div class="latest-product__item__text">
-          <h6 className="home-product-clamp-lines">{product.name}</h6>
+          <Link to={`/product/${product.id}`}>
+            <h6 className="home-product-clamp-lines">{product.name}</h6>
+          </Link>
           <h6 style={{ color: "grey" }}>{brandName}</h6>
           <NumberFormat
             value={(product.unitPrice * (100 - product.discountPercent)) / 100}
@@ -63,11 +62,14 @@ const Product = ({ product, brands }) => {
             />
           )}
         </div>
-        <Button className="home-product-cart-button" onClick={() => {}}>
+        <Button
+          className="home-product-cart-button"
+          onClick={() => onAdd(product)}
+        >
           {" "}
           <ShoppingCartIcon />{" "}
         </Button>
-      </Link>
+      </div>
     </BrowserRouter>
   );
 };

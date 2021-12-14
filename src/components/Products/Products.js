@@ -3,7 +3,7 @@ import axios from "axios";
 
 import Product from "./Product/Product";
 
-const Products = ({ brands }) => {
+const Products = ({ brands, onAdd }) => {
   const [latestProductsPage1, setLatestProductsPage1] = React.useState([]);
   const [hotProductsPage1, setHotProductsPage1] = React.useState([]);
   const [discountedProductsPage1, setDiscountedProductsPage1] = React.useState(
@@ -106,6 +106,7 @@ const Products = ({ brands }) => {
                       product={product}
                       key={product.id}
                       brands={brands}
+                      onAdd={onAdd}
                     />
                   ))}
                 </div>
@@ -115,6 +116,7 @@ const Products = ({ brands }) => {
                       product={product}
                       key={product.id}
                       brands={brands}
+                      onAdd={onAdd}
                     />
                   ))}
                 </div>
@@ -131,6 +133,7 @@ const Products = ({ brands }) => {
                       product={product}
                       key={product.id}
                       brands={brands}
+                      onAdd={onAdd}
                     />
                   ))}
                 </div>
@@ -140,6 +143,7 @@ const Products = ({ brands }) => {
                       product={product}
                       key={product.id}
                       brands={brands}
+                      onAdd={onAdd}
                     />
                   ))}
                 </div>
@@ -156,6 +160,7 @@ const Products = ({ brands }) => {
                       product={product}
                       key={product.id}
                       brands={brands}
+                      onAdd={onAdd}
                     />
                   ))}
                 </div>
@@ -165,6 +170,7 @@ const Products = ({ brands }) => {
                       product={product}
                       key={product.id}
                       brands={brands}
+                      onAdd={onAdd}
                     />
                   ))}
                 </div>

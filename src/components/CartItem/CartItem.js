@@ -6,27 +6,23 @@ import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 import NumberFormat from "react-number-format";
 
-const CartItem = ({cartItem}) => {
-
+const CartItem = ({ cartItem, onAdd }) => {
   const [itemCount, setItemCount] = React.useState(1);
-
   return (
     <tr>
       <td>
         <figure class="itemside">
           <div class="aside">
             <img
-              src="assets/img/products/_vien_hoa_hong_20_7864653c7d0b4a4782ceeee80c9e7eaf_master.webp"
+              src={`http://localhost:3000/assets/img/products/${cartItem.image}`}
               class="img-sm"
             />
           </div>
           <figcaption class="info">
             <a href="#" class="title text-dark">
-              Some name of item goes here nice
+              {cartItem.name}
             </a>
-            <p class="text-muted small">
-              Size: XL, Color: blue, <br /> Brand: Gucci
-            </p>
+            <p class="text-muted small"></p>
           </figcaption>
         </figure>
       </td>
@@ -36,6 +32,7 @@ const CartItem = ({cartItem}) => {
           <Button
             onClick={() => {
               setItemCount(Math.max(itemCount - 1, 1));
+              //   onAdd(cartItem);
             }}
             className="product-detail-button"
             style={{ marginLeft: "60px" }}
@@ -47,6 +44,7 @@ const CartItem = ({cartItem}) => {
           <Button
             onClick={() => {
               setItemCount(Math.min(itemCount + 1, 100));
+              //   onAdd(cartItem);
             }}
             className="product-detail-button"
           >
@@ -57,8 +55,8 @@ const CartItem = ({cartItem}) => {
       </td>
       <td>
         <div class="price-wrap">
-          <var class="price">$1156.00</var>
-          <small class="text-muted"> $315.20 </small>
+          <var class="price">{cartItem.unitPrice * cartItem.cartQuantity}</var>
+          <small class="text-muted"> {cartItem.unitPrice} </small>
         </div>
       </td>
       <td class="text-right">

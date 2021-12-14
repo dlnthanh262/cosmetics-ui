@@ -5,11 +5,11 @@ import Brand from '../Brand/Brand';
 import Products from '../Products/Products';
 import Blogs from '../Blogs/Blogs';
 
-const Home = ({ brands , products, posts }) => {
+const Home = ({ brands , products, posts, onAdd }) => {
     return (
         <div>
             <Brand brands={brands}></Brand>
-            <Products brands={brands}/>
+            <Products brands={brands} onAdd={onAdd} />
             <Blogs posts={posts}/>
         </div>
     )

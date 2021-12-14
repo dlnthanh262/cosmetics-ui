@@ -2,11 +2,11 @@ import React from "react";
 
 import CartItem from "../CartItem/CartItem";
 
-const Cart = () => {
+const Cart = ({ cartItems, onAdd }) => {
   return (
     <div>
       <section class="section-content padding-y">
-        <div class="container">
+        <div class="container"> 
           <div class="row">
             <main class="col-md-9">
               <div class="card">
@@ -26,26 +26,32 @@ const Cart = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    
+                    {cartItems.map((item) => (
+                      <CartItem
+                        cartItem={item}
+                        onAdd={onAdd}
+                        key={item.productId}
+                      />
+                    ))}
                   </tbody>
                 </table>
 
                 <div class="card-body border-top">
                   <a href="#" class="btn btn-primary float-md-right">
                     {" "}
-                    Thanh toán {" "}
+                    Thanh toán{" "}
                   </a>
                   <a href="#" class="btn btn-light">
                     {" "}
-                     Tiếp tục mua sắm{" "}
+                    Tiếp tục mua sắm{" "}
                   </a>
                 </div>
               </div>
 
               <div class="alert alert-success mt-3">
                 <p class="icontext">
-                  <i class="icon text-success fa fa-truck"></i> Giao hàng miễn
-                  phí trong tháng 12
+                  <i class="icon text-success fa fa-truck"></i> Giao hàng từ 2 -
+                  7 ngày
                 </p>
               </div>
             </main>
