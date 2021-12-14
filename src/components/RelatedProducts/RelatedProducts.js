@@ -85,40 +85,13 @@ const RelatedProducts = ({ categoryId, brandId }) => {
       fetchRelatedProductsByBrandPage2();
     }
     fetchBrands();
-  });
+  }, []);
 
   return (
     <section class="categories">
       <div class="container">
         <div class="row">
-          <div class="col-lg-4 col-md-12">
-            <div class="latest-product__text">
-              <h4>Sản phẩm cùng loại</h4>
-              <div class="latest-product__slider owl-carousel">
-                <div class="latest-prdouct__slider__item">
-                  {relatedProductsByCategoryPage1.map((product) => (
-                    <Product
-                      product={product}
-                      key={product.id}
-                      brands={brands}
-                    />
-                  ))}
-                </div>
-                <div class="latest-prdouct__slider__item">
-                  {hasSecondCategoryPage
-                    ? relatedProductsByCategoryPage2.map((product) => (
-                        <Product
-                          product={product}
-                          key={product.id}
-                          brands={brands}
-                        />
-                      ))
-                    : null}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-12">
+          <div class="col-lg-6 col-md-12">
             <div class="latest-product__text">
               <h4>Sản phẩm cùng thương hiệu</h4>
               <div class="latest-product__slider owl-carousel">
@@ -134,6 +107,33 @@ const RelatedProducts = ({ categoryId, brandId }) => {
                 <div class="latest-prdouct__slider__item">
                   {hasSecondBrandPage
                     ? relatedProductsByBrandPage2.map((product) => (
+                        <Product
+                          product={product}
+                          key={product.id}
+                          brands={brands}
+                        />
+                      ))
+                    : null}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <div class="latest-product__text">
+              <h4>Sản phẩm cùng loại</h4>
+              <div class="latest-product__slider owl-carousel">
+                <div class="latest-prdouct__slider__item">
+                  {relatedProductsByCategoryPage1.map((product) => (
+                    <Product
+                      product={product}
+                      key={product.id}
+                      brands={brands}
+                    />
+                  ))}
+                </div>
+                <div class="latest-prdouct__slider__item">
+                  {hasSecondCategoryPage
+                    ? relatedProductsByCategoryPage2.map((product) => (
                         <Product
                           product={product}
                           key={product.id}

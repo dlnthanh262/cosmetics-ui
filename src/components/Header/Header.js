@@ -1,12 +1,12 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
 import Banner from "../Banner/Banner";
 import ProductDetail from "../ProductDetail/ProductDetail";
 
 const Header = ({ categories }) => {
   return (
-    <BrowserRouter>
+    <BrowserRouter forceRefresh>
       <header class="header">
         <div class="header__top">
           <div class="container">
@@ -97,9 +97,9 @@ const Header = ({ categories }) => {
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link to="/cart" >
                       <i class="fa fa-shopping-bag"></i> <span>3</span>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
                 <div class="header__cart__price">
@@ -133,6 +133,15 @@ const Header = ({ categories }) => {
                     </ul>
                   </Route>
                   <Route exact path="/product/:id">
+                    <ul class="display-none">
+                      {categories.map((category) => (
+                        <li key={category.id}>
+                          <a href="#">{category.name}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  </Route>
+                  <Route exact path="/cart">
                     <ul class="display-none">
                       {categories.map((category) => (
                         <li key={category.id}>
