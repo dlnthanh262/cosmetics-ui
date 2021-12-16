@@ -22,12 +22,17 @@ const Login = ({ setToken }) => {
       password,
     });
     if (response.login) {
+      setTokenSession(response.token);
       setToken(response.token);
       setHasError(false);
     } else {
       setHasError(true);
     }
   };
+
+  function setTokenSession(userToken) {
+    sessionStorage.setItem("token", JSON.stringify(userToken));
+  }
 
   return (
     <div className="container p-5">

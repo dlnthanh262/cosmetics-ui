@@ -20,16 +20,6 @@ const App = () => {
 
   const [token, setToken] = React.useState();
 
-  function setTokenSession(userToken) {
-    sessionStorage.setItem("token", JSON.stringify(userToken));
-  }
-
-  function getTokenSession() {
-    let tokenString = sessionStorage.getItem("token");
-    let userToken = JSON.parse(tokenString);
-    return userToken?.token;
-  }
-
   const onAdd = (product) => {
     const exist = cartItems.find((x) => x.id === product.id);
     if (exist) {
@@ -87,6 +77,9 @@ const App = () => {
     fetchBrands();
     fetchProducts();
     fetchPosts();
+    if (window.sessionStorage.getItem('token')) {
+      setToken(window.sessionStorage.getItem('token'));
+  }
   }, []);
 
   return (
@@ -116,8 +109,8 @@ const App = () => {
             <Cart onAdd={onAdd} />
             <Footer></Footer>
           </Route>
+
           <Route path="/dashboard">
-            {setTokenSession(token)}
             {!token ? <Login setToken={setToken} /> : <Dashboard />}
           </Route>
 
