@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Modal, Input } from "react-bootstrap";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import Category from "./Category/Category";
 
 import Product from "./Product/Product";
 
@@ -39,7 +40,7 @@ const Dashboard = () => {
       <BrowserRouter forceRefresh>
         <Switch>
           <Route path={["/dashboard", "/dashboard/category"]}>
-            <Product></Product>
+            <Category></Category>
           </Route>
 
           <Route path="/dashboard/product">
