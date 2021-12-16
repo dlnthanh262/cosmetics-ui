@@ -137,7 +137,7 @@ const Category = () => {
               <form onSubmit={handleSubmit}>
                 <div class="form-group">
                   <input
-                    type="email"
+                    type="text"
                     class="form-control"
                     id="nameInput"
                     aria-describedby="emailHelp"
