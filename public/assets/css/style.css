@@ -3683,3 +3683,14 @@ ol {
 button:hover {
   opacity: 0.8 !important;
 }
+
+.cart-detail-button {
+  outline: none !important;
+  justify-content: center!important;
+  padding: 0 !important;
+  min-width: 25px !important;
+}
+
+.cart-detail-button-text {
+  min-width: 25px !important;
+}

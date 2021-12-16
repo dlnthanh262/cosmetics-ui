@@ -1,8 +1,11 @@
 import React from "react";
+import {useLocation} from 'react-router-dom';
 
 import CartItem from "../CartItem/CartItem";
 
-const Cart = ({ cartItems, onAdd }) => {
+const Cart = ({ onAdd }) => {
+  let location = useLocation();
+  const cartItems = location.state;
   return (
     <div>
       <section class="section-content padding-y">
@@ -30,7 +33,7 @@ const Cart = ({ cartItems, onAdd }) => {
                       <CartItem
                         cartItem={item}
                         onAdd={onAdd}
-                        key={item.productId}
+                        key={item.id}
                       />
                     ))}
                   </tbody>

@@ -28,25 +28,23 @@ const CartItem = ({ cartItem, onAdd }) => {
       </td>
       <td>
         <ButtonGroup>
-          <p className="product-detail-button-text">Số lượng: </p>
           <Button
             onClick={() => {
               setItemCount(Math.max(itemCount - 1, 1));
-              //   onAdd(cartItem);
+              onAdd(cartItem);
             }}
-            className="product-detail-button"
-            style={{ marginLeft: "60px" }}
+            className="product-detail-button cart-detail-button"
           >
             {" "}
             <RemoveIcon fontSize="small" />
           </Button>
-          <p className="product-detail-button-text">{itemCount}</p>
+          <p className="product-detail-button-text cart-detail-button-text">{itemCount}</p>
           <Button
             onClick={() => {
               setItemCount(Math.min(itemCount + 1, 100));
-              //   onAdd(cartItem);
+              onAdd(cartItem);
             }}
-            className="product-detail-button"
+            className="product-detail-button cart-detail-button"
           >
             {" "}
             <AddIcon fontSize="small" />
@@ -55,8 +53,26 @@ const CartItem = ({ cartItem, onAdd }) => {
       </td>
       <td>
         <div class="price-wrap">
-          <var class="price">{cartItem.unitPrice * cartItem.cartQuantity}</var>
-          <small class="text-muted"> {cartItem.unitPrice} </small>
+          <NumberFormat
+            value={
+              ((cartItem.unitPrice * (100 - cartItem.discountPercent)) / 100) *
+              cartItem.cartQuantity
+            }
+            displayType={"text"}
+            className="home-product-discounted-price"
+            thousandSeparator={true}
+            renderText={(value, props) => <span {...props}>{value}</span>}
+          />
+          <NumberFormat
+            value={
+              (cartItem.unitPrice * (100 - cartItem.discountPercent)) / 100
+            }
+            displayType={"text"}
+            className="text-muted"
+            thousandSeparator={true}
+            renderText={(value, props) => <span {...props}>{value}</span>}
+          />
+          {/* <var class="price">{cartItem.unitPrice * cartItem.cartQuantity}</var> */}
         </div>
       </td>
       <td class="text-right">

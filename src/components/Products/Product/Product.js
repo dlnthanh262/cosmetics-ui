@@ -5,7 +5,7 @@ import NumberFormat from "react-number-format";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Button from "@material-ui/core/Button";
 
-const Product = ({ product, brands, onAdd }) => {
+const Product = ({ product, brands, onAdd, cartItems }) => {
   const [brandName, setBrandName] = useState("No brand");
   const [type, setType] = useState("");
 

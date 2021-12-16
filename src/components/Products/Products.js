@@ -3,7 +3,7 @@ import axios from "axios";
 
 import Product from "./Product/Product";
 
-const Products = ({ brands, onAdd }) => {
+const Products = ({ brands, onAdd, cartItems }) => {
   const [latestProductsPage1, setLatestProductsPage1] = React.useState([]);
   const [hotProductsPage1, setHotProductsPage1] = React.useState([]);
   const [discountedProductsPage1, setDiscountedProductsPage1] = React.useState(
@@ -107,6 +107,7 @@ const Products = ({ brands, onAdd }) => {
                       key={product.id}
                       brands={brands}
                       onAdd={onAdd}
+                      cartItems={cartItems}
                     />
                   ))}
                 </div>
@@ -117,6 +118,7 @@ const Products = ({ brands, onAdd }) => {
                       key={product.id}
                       brands={brands}
                       onAdd={onAdd}
+                      cartItems={cartItems}
                     />
                   ))}
                 </div>
@@ -134,6 +136,7 @@ const Products = ({ brands, onAdd }) => {
                       key={product.id}
                       brands={brands}
                       onAdd={onAdd}
+                      cartItems={cartItems}
                     />
                   ))}
                 </div>
@@ -144,6 +147,7 @@ const Products = ({ brands, onAdd }) => {
                       key={product.id}
                       brands={brands}
                       onAdd={onAdd}
+                      cartItems={cartItems}
                     />
                   ))}
                 </div>
@@ -161,6 +165,7 @@ const Products = ({ brands, onAdd }) => {
                       key={product.id}
                       brands={brands}
                       onAdd={onAdd}
+                      cartItems={cartItems}
                     />
                   ))}
                 </div>
@@ -171,6 +176,7 @@ const Products = ({ brands, onAdd }) => {
                       key={product.id}
                       brands={brands}
                       onAdd={onAdd}
+                      cartItems={cartItems}
                     />
                   ))}
                 </div>

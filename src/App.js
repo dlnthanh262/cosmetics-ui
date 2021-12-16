@@ -26,7 +26,7 @@ const App = () => {
         )
       );
     } else {
-      setCartItems([...cartItems, {...product, cartQuantity: 1 }]);
+      setCartItems([...cartItems, { ...product, cartQuantity: 1 }]);
     }
   };
 
@@ -76,16 +76,22 @@ const App = () => {
   return (
     <BrowserRouter forceRefresh>
       <div className="MainDiv">
-        <Header categories={categories}></Header>
+        <Header categories={categories} cartItems={cartItems}></Header>
         <Switch>
           <Route exact path="/">
-            <Home products={products} posts={posts} brands={brands} onAdd={onAdd} />
+            <Home
+              products={products}
+              posts={posts}
+              brands={brands}
+              onAdd={onAdd}
+              cartItems={cartItems}
+            />
           </Route>
           <Route exact path="/product/:id">
             <ProductDetail brands={brands} />
           </Route>
           <Route exact path="/cart">
-            <Cart cartItems={cartItems} onAdd={onAdd} />
+            <Cart onAdd={onAdd} />
           </Route>
         </Switch>
         <Footer></Footer>
