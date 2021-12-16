@@ -7,7 +7,8 @@ import RemoveIcon from "@material-ui/icons/Remove";
 import NumberFormat from "react-number-format";
 
 const CartItem = ({ cartItem, onAdd }) => {
-  const [itemCount, setItemCount] = React.useState(1);
+  const [itemCount, setItemCount] = React.useState(cartItem.cartQuantity);
+
   return (
     <tr>
       <td>
@@ -31,7 +32,6 @@ const CartItem = ({ cartItem, onAdd }) => {
           <Button
             onClick={() => {
               setItemCount(Math.max(itemCount - 1, 1));
-              onAdd(cartItem);
             }}
             className="product-detail-button cart-detail-button"
           >
@@ -42,7 +42,6 @@ const CartItem = ({ cartItem, onAdd }) => {
           <Button
             onClick={() => {
               setItemCount(Math.min(itemCount + 1, 100));
-              onAdd(cartItem);
             }}
             className="product-detail-button cart-detail-button"
           >
@@ -56,7 +55,7 @@ const CartItem = ({ cartItem, onAdd }) => {
           <NumberFormat
             value={
               ((cartItem.unitPrice * (100 - cartItem.discountPercent)) / 100) *
-              cartItem.cartQuantity
+              itemCount
             }
             displayType={"text"}
             className="home-product-discounted-price"
@@ -68,11 +67,10 @@ const CartItem = ({ cartItem, onAdd }) => {
               (cartItem.unitPrice * (100 - cartItem.discountPercent)) / 100
             }
             displayType={"text"}
-            className="text-muted"
+            className="text-muted cart-unit-price"
             thousandSeparator={true}
             renderText={(value, props) => <span {...props}>{value}</span>}
           />
-          {/* <var class="price">{cartItem.unitPrice * cartItem.cartQuantity}</var> */}
         </div>
       </td>
       <td class="text-right">

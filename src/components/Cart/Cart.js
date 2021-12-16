@@ -6,6 +6,7 @@ import CartItem from "../CartItem/CartItem";
 const Cart = ({ onAdd }) => {
   let location = useLocation();
   const cartItems = location.state;
+
   return (
     <div>
       <section class="section-content padding-y">
@@ -32,7 +33,7 @@ const Cart = ({ onAdd }) => {
                     {cartItems.map((item) => (
                       <CartItem
                         cartItem={item}
-                        onAdd={onAdd}
+                        onAdd={(onAdd)}
                         key={item.id}
                       />
                     ))}
@@ -83,16 +84,16 @@ const Cart = ({ onAdd }) => {
                 <div class="card-body">
                   <dl class="dlist-align">
                     <dt>Tổng tiền sản phẩm:</dt>
-                    <dd class="text-right">568</dd>
+                    <dd class="text-right"></dd>
                   </dl>
                   <dl class="dlist-align">
                     <dt>Đã giảm:</dt>
-                    <dd class="text-right">658</dd>
+                    <dd class="text-right"></dd>
                   </dl>
                   <dl class="dlist-align">
                     <dt>Tổng cộng:</dt>
                     <dd class="text-right  h5">
-                      <strong>$1,650</strong>
+                      <strong></strong>
                     </dd>
                   </dl>
                   <hr />

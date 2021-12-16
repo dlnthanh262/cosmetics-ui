@@ -7,6 +7,9 @@ import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
 import Cart from "./components/Cart/Cart";
+import Dashboard from "./components/Dashboard/Dashboard";
+import Preferences from "./components/Preferences/Preferences";
+import Login from "./components/Login/Login";
 
 const App = () => {
   const [categories, setCategories] = React.useState([]);
@@ -14,6 +17,8 @@ const App = () => {
   const [products, setProducts] = React.useState([]);
   const [posts, setPosts] = React.useState([]);
   const [cartItems, setCartItems] = React.useState([]);
+
+  const [token, setToken] = React.useState();
 
   const onAdd = (product) => {
     const exist = cartItems.find((x) => x.id === product.id);
@@ -28,6 +33,7 @@ const App = () => {
     } else {
       setCartItems([...cartItems, { ...product, cartQuantity: 1 }]);
     }
+    console.log(cartItems);
   };
 
   const fetchPosts = async () => {
@@ -76,9 +82,9 @@ const App = () => {
   return (
     <BrowserRouter forceRefresh>
       <div className="MainDiv">
-        <Header categories={categories} cartItems={cartItems}></Header>
         <Switch>
           <Route exact path="/">
+            <Header categories={categories} cartItems={cartItems}></Header>
             <Home
               products={products}
               posts={posts}
@@ -86,15 +92,29 @@ const App = () => {
               onAdd={onAdd}
               cartItems={cartItems}
             />
+            <Footer></Footer>
           </Route>
+
           <Route exact path="/product/:id">
+            <Header categories={categories} cartItems={cartItems}></Header>
             <ProductDetail brands={brands} />
+            <Footer></Footer>
           </Route>
+
           <Route exact path="/cart">
+            <Header categories={categories} cartItems={cartItems}></Header>
             <Cart onAdd={onAdd} />
+            <Footer></Footer>
+          </Route>
+
+          <Route path="/dashboard">
+            {!token ? <Login setToken={setToken} /> : <Dashboard />}
+          </Route>
+
+          <Route path="/preferences">
+            <Preferences />
           </Route>
         </Switch>
-        <Footer></Footer>
       </div>
     </BrowserRouter>
   );

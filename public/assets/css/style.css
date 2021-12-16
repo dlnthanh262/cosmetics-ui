@@ -3694,3 +3694,13 @@ button:hover {
 .cart-detail-button-text {
   min-width: 25px !important;
 }
+
+.cart-unit-price {
+  font-size: 0.8rem;
+}
+
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
