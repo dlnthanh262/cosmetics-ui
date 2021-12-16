@@ -1,7 +1,7 @@
 import React from "react";
 
 async function loginUser(credentials) {
-  return fetch("http://localhost:8080/login", {
+  return fetch("http://localhost:8080/api/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -13,14 +13,20 @@ async function loginUser(credentials) {
 const Login = ({ setToken }) => {
   const [username, setUserName] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [hasError, setHasError] = React.useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const token = await loginUser({
+    const response = await loginUser({
       username,
       password,
     });
-    setToken(token);
+    if (response.login) {
+      setToken(response.token);
+      setHasError(false);
+    } else {
+      setHasError(true);
+    }
   };
 
   return (
@@ -46,6 +52,11 @@ const Login = ({ setToken }) => {
             className="text-center"
           />
         </label>
+        {hasError ? (
+          <p className="text-center mt-4 text-danger">
+            Sai tài khoản hoặc mật khẩu!
+          </p>
+        ) : null}
         <div className="mt-2">
           <button type="submit">Đăng nhập</button>
         </div>
